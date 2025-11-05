@@ -1,0 +1,149 @@
+.monthly-view {
+  position: relative;
+}
+
+/* FullCalendar 커스터마이징 */
+.monthly-view .fc {
+  font-family: inherit;
+}
+
+.monthly-view .fc-theme-standard td,
+.monthly-view .fc-theme-standard th {
+  border-color: #e5e7eb;
+}
+
+.monthly-view .fc-col-header-cell {
+  padding: 12px 8px;
+  background: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+}
+
+.monthly-view .fc-daygrid-day {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.monthly-view .fc-daygrid-day:hover {
+  background-color: #f9fafb;
+}
+
+.monthly-view .fc-daygrid-day-number {
+  padding: 8px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.monthly-view .fc-day-today {
+  background-color: #eff6ff !important;
+}
+
+.monthly-view .fc-day-today .fc-daygrid-day-number {
+  background: #2563eb;
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* 이벤트 스타일 */
+.monthly-view .fc-event {
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin: 2px 0;
+  cursor: pointer;
+  border-left-width: 3px;
+  font-size: 12px;
+}
+
+.monthly-view .fc-event:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.event-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.event-title {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-periods {
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+/* 주말 스타일 */
+.monthly-view .fc-day-sat .fc-daygrid-day-number {
+  color: #2563eb;
+}
+
+.monthly-view .fc-day-sun .fc-daygrid-day-number {
+  color: #dc2626;
+}
+
+/* 다른 달의 날짜 */
+.monthly-view .fc-day-other .fc-daygrid-day-number {
+  color: #9ca3af;
+}
+
+/* 빈 상태 */
+.empty-state {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .monthly-view .fc-col-header-cell {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+
+  .monthly-view .fc-daygrid-day-number {
+    padding: 4px;
+    font-size: 12px;
+  }
+
+  .monthly-view .fc-event {
+    font-size: 11px;
+    padding: 1px 4px;
+  }
+
+  .event-periods {
+    font-size: 10px;
+  }
+}
+
+
+/* 평가 이벤트 스타일 */
+.exam-event {
+  font-weight: 700;
+}
+
+.exam-event .event-title {
+  font-weight: 700;
+}

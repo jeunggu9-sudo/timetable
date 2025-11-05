@@ -1,0 +1,173 @@
+.schedule-view-page {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 20px;
+}
+
+.page-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* 컨트롤 영역 */
+.schedule-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* 뷰 모드 선택 */
+.view-mode-selector {
+  display: flex;
+  gap: 8px;
+  background: #f5f5f5;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.view-mode-selector button {
+  padding: 8px 20px;
+  border: none;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.view-mode-selector button:hover {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.view-mode-selector button.active {
+  background: #2563eb;
+  color: white;
+}
+
+/* 날짜 네비게이션 */
+.date-navigation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.date-navigation .nav-button,
+.date-navigation .today-button {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s;
+}
+
+.date-navigation .nav-button:hover,
+.date-navigation .today-button:hover {
+  background: #f5f5f5;
+  border-color: #bbb;
+}
+
+.date-navigation .today-button {
+  background: #f0f9ff;
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.date-navigation .today-button:hover {
+  background: #dbeafe;
+}
+
+.date-navigation .current-date {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  min-width: 200px;
+  text-align: center;
+}
+
+/* 로딩 상태 */
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-indicator p {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* 스케줄 컨텐츠 영역 */
+.schedule-content {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  min-height: 500px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .schedule-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .view-mode-selector {
+    width: 100%;
+  }
+
+  .view-mode-selector button {
+    flex: 1;
+  }
+
+  .date-navigation {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .date-navigation .current-date {
+    min-width: auto;
+    flex: 1;
+  }
+}

@@ -1,0 +1,522 @@
+.upload-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.upload-page h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.upload-page .description {
+  color: #7f8c8d;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.upload-section {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.file-input-wrapper {
+  position: relative;
+}
+
+.file-input {
+  position: absolute;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.file-input-label {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  border: 2px solid #bdc3c7;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 400px;
+}
+
+.file-input-label:hover {
+  background-color: #d5dbdb;
+  border-color: #95a5a6;
+}
+
+.file-input:disabled + .file-input-label {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.upload-button {
+  padding: 12px 32px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+.upload-button:hover:not(:disabled) {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+.upload-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.reset-button {
+  padding: 12px 24px;
+  background-color: #95a5a6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: #7f8c8d;
+}
+
+.status-message {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.status-message.uploading {
+  background-color: #e8f4f8;
+  border: 1px solid #3498db;
+  color: #2c3e50;
+}
+
+.status-message.success {
+  background-color: #d5f4e6;
+  border: 1px solid #27ae60;
+  color: #27ae60;
+}
+
+.status-message.error {
+  background-color: #fadbd8;
+  border: 1px solid #e74c3c;
+  color: #c0392b;
+}
+
+.status-message .icon {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.status-message strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.status-message p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #ecf0f1;
+  border-top-color: #3498db;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.preview-section {
+  margin-top: 40px;
+}
+
+.preview-section h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.summary-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.summary-item {
+  background-color: #f8f9fa;
+  padding: 15px 20px;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary-label {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.summary-value {
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.courses-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.courses-table thead {
+  background-color: #34495e;
+  color: white;
+}
+
+.courses-table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.courses-table tbody tr {
+  border-bottom: 1px solid #ecf0f1;
+  transition: background-color 0.2s ease;
+}
+
+.courses-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.courses-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.courses-table td {
+  padding: 12px 16px;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.courses-table td:first-child {
+  font-weight: 600;
+  color: #7f8c8d;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.badge.pre-assign {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.badge.auto-assign {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+@media (max-width: 768px) {
+  .upload-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .file-input-label {
+    max-width: 100%;
+  }
+
+  .summary-info {
+    grid-template-columns: 1fr;
+  }
+
+  .courses-table {
+    font-size: 12px;
+  }
+
+  .courses-table th,
+  .courses-table td {
+    padding: 10px 8px;
+  }
+}
+/* Upload Type Selection */
+.upload-type-selection {
+  margin-bottom: 20px;
+}
+
+.upload-type-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #e0e0e0;
+  margin-bottom: 16px;
+}
+
+.upload-type-tab {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.upload-type-tab:hover {
+  color: #4a90e2;
+  background-color: #f8f9fa;
+}
+
+.upload-type-tab.active {
+  color: #4a90e2;
+  border-bottom-color: #4a90e2;
+  background-color: #f8f9fa;
+}/* Templ
+ate Download Section */
+.template-section {
+  margin: 20px 0;
+  padding: 16px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+}
+
+.template-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.template-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.template-text {
+  flex: 1;
+}
+
+.template-text p {
+  margin: 0;
+  color: #495057;
+}
+
+.template-text p:first-child {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.template-hint {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.template-download-btn {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.template-download-btn:hover {
+  background-color: #218838;
+}
+
+.template-download-btn:active {
+  background-color: #1e7e34;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .template-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .template-download-btn {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+/*
+ Instructor Off Days Container */
+.instructor-offdays-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.instructor-offdays-card {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+}
+
+.instructor-offdays-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: #3498db;
+}
+
+.instructor-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f8f9fa;
+}
+
+.instructor-name-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+}
+
+.offdays-count-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #28a745;
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.offdays-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.offday-item-card {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.offday-item-card:hover {
+  background: #e9ecef;
+  border-color: #3498db;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(52, 152, 219, 0.2);
+}
+
+.offday-item-card .offday-date {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.offday-item-card .offday-reason {
+  font-size: 12px;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Responsive for instructor off days */
+@media (max-width: 768px) {
+  .offdays-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instructor-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .instructor-name-badge {
+    font-size: 14px;
+    padding: 5px 14px;
+  }
+
+  .offdays-count-badge {
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+}

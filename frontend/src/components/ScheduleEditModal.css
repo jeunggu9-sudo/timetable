@@ -1,0 +1,269 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* 헤더 */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.close-button:hover {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+/* 바디 */
+.modal-body {
+  padding: 24px;
+}
+
+/* 정보 섹션 */
+.info-section {
+  background: #f9fafb;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.info-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-label {
+  color: #6b7280;
+  font-weight: 500;
+  min-width: 70px;
+}
+
+.info-value {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.pre-assigned-notice {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #10b981;
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* 폼 섹션 */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-input {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #1f2937;
+  transition: all 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.hours-info {
+  padding: 12px;
+  background: #eff6ff;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #1e40af;
+}
+
+.hours-info strong {
+  font-weight: 600;
+}
+
+.warning-text {
+  color: #dc2626;
+  font-size: 13px;
+  margin-left: 8px;
+}
+
+.error-message {
+  padding: 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  color: #dc2626;
+  font-size: 13px;
+}
+
+/* 푸터 */
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-top: 1px solid #e5e7eb;
+  gap: 12px;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+}
+
+.modal-footer button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.modal-footer button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.delete-button {
+  background: #dc2626;
+  color: white;
+}
+
+.delete-button:hover:not(:disabled) {
+  background: #b91c1c;
+}
+
+.cancel-button {
+  background: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.cancel-button:hover:not(:disabled) {
+  background: #f9fafb;
+}
+
+.save-button {
+  background: #2563eb;
+  color: white;
+}
+
+.save-button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+/* 반응형 */
+@media (max-width: 640px) {
+  .modal-content {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding: 16px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .button-group {
+    width: 100%;
+  }
+
+  .button-group button,
+  .delete-button {
+    flex: 1;
+  }
+}

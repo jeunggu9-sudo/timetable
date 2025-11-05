@@ -1,0 +1,162 @@
+.multi-day-modal {
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.warning-box {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  background-color: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.warning-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.warning-content {
+  flex: 1;
+}
+
+.warning-content p {
+  margin: 4px 0;
+  color: #856404;
+  line-height: 1.5;
+}
+
+.warning-content strong {
+  color: #664d03;
+  font-weight: 600;
+}
+
+.assignment-details {
+  margin-bottom: 20px;
+}
+
+.assignment-details h4 {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.assignment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.assignment-item {
+  padding: 12px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.assignment-day {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.day-number {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6c757d;
+  text-transform: uppercase;
+}
+
+.day-date {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.assignment-time {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.period-range {
+  font-size: 14px;
+  color: #495057;
+}
+
+.hours-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: #4a90e2;
+  color: white;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.summary-box {
+  padding: 16px;
+  background-color: #e7f3ff;
+  border: 1px solid #4a90e2;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.summary-item:last-child {
+  margin-bottom: 0;
+}
+
+.summary-label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.summary-value {
+  font-weight: 600;
+  color: #1565c0;
+}
+
+.confirmation-message {
+  text-align: center;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+}
+
+.confirmation-message p {
+  margin: 0;
+  color: #495057;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+  .multi-day-modal {
+    max-width: 95%;
+  }
+
+  .assignment-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .assignment-time {
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,893 @@
+.instructor-offday-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h2 {
+  margin: 0 0 0.5rem 0;
+  color: #1a1a1a;
+  font-size: 1.75rem;
+}
+
+.page-header p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Instructor Section */
+.instructor-section {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.instructor-section h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  color: #1a1a1a;
+}
+
+.instructor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.instructor-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.instructor-item:hover {
+  background: #e9ecef;
+  border-color: #dee2e6;
+}
+
+.instructor-item.selected {
+  background: #e7f3ff;
+  border-color: #2196f3;
+  font-weight: 500;
+}
+
+.instructor-name {
+  flex: 1;
+}
+
+.selected-indicator {
+  color: #2196f3;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Off Day Section */
+.offday-section {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+}
+
+.offday-section h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.25rem;
+  color: #1a1a1a;
+}
+
+/* Add Off Day Form */
+.add-offday-form {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group > label {
+  font-weight: 500;
+  color: #495057;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.date-range-group {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.date-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  flex: 1;
+  min-width: 150px;
+}
+
+.date-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #6c757d;
+}
+
+.date-input-wrapper input[type="date"] {
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.date-input-wrapper input[type="date"]:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.date-input-wrapper input[type="date"]:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+.date-separator {
+  font-size: 1.25rem;
+  color: #6c757d;
+  padding-bottom: 0.625rem;
+  font-weight: 500;
+}
+
+.hint-text {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.input-group {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.input-group input[type="date"] {
+  flex: 1;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.input-group input[type="date"]:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.input-group input[type="date"]:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+.btn-add {
+  padding: 0.625rem 1.5rem;
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.btn-add:hover:not(:disabled) {
+  background: #1976d2;
+}
+
+.btn-add:disabled {
+  background: #b0bec5;
+  cursor: not-allowed;
+}
+
+/* Off Days List */
+.offday-list-container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.offday-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.offday-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.offday-item:hover {
+  background: #e9ecef;
+  border-color: #dee2e6;
+}
+
+.offday-date {
+  font-size: 0.95rem;
+  color: #495057;
+}
+
+.btn-delete {
+  padding: 0.375rem 0.625rem;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+  opacity: 0.6;
+}
+
+.btn-delete:hover:not(:disabled) {
+  background: #fee;
+  opacity: 1;
+}
+
+.btn-delete:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+/* Loading and Empty States */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #6c757d;
+}
+
+.empty-state p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.empty-state .hint {
+  font-size: 0.85rem;
+  color: #adb5bd;
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .instructor-offday-page {
+    padding: 1rem;
+  }
+
+  .content-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .page-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  .date-range-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .date-input-wrapper {
+    min-width: 100%;
+  }
+
+  .date-separator {
+    text-align: center;
+    padding: 0.25rem 0;
+  }
+
+  .btn-add {
+    width: 100%;
+  }
+}
+/* Upload hint */
+.upload-hint {
+  color: #4a90e2;
+  font-size: 14px;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background-color: #f0f8ff;
+  border-radius: 4px;
+  border-left: 3px solid #4a90e2;
+}
+
+/* Off day item improvements */
+.offday-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background-color: #fff;
+  transition: all 0.2s;
+}
+
+.offday-item:hover {
+  border-color: #4a90e2;
+  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.1);
+}
+
+.offday-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.offday-date {
+  font-weight: 500;
+  color: #333;
+}
+
+.offday-reason {
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.btn-delete:hover {
+  background-color: #ffe6e6;
+}
+
+.btn-delete:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Excel Upload Section */
+.upload-section {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.upload-section h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.upload-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.file-input-group {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+
+.file-input-group input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.file-input-label {
+  display: block;
+  padding: 0.625rem 1rem;
+  background: #f8f9fa;
+  border: 2px dashed #dee2e6;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+  color: #495057;
+}
+
+.file-input-label:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.file-input-group:has(input:disabled) .file-input-label {
+  background: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.btn-upload {
+  padding: 0.625rem 1.5rem;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.btn-upload:hover:not(:disabled) {
+  background: #218838;
+}
+
+.btn-upload:disabled {
+  background: #b0bec5;
+  cursor: not-allowed;
+}
+
+.btn-template {
+  padding: 0.625rem 1.5rem;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.btn-template:hover:not(:disabled) {
+  background: #5a6268;
+}
+
+.btn-template:disabled {
+  background: #b0bec5;
+  cursor: not-allowed;
+}
+
+/* Upload Result Section */
+.upload-result-section {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  border-left: 4px solid #28a745;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.result-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.result-summary {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.summary-label {
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.summary-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #28a745;
+}
+
+.btn-close-result {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.btn-close-result:hover {
+  background: #f8f9fa;
+  color: #495057;
+}
+
+/* Result Table */
+.result-table-container {
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.result-table th {
+  background: #f8f9fa;
+  padding: 0.875rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 2px solid #dee2e6;
+  white-space: nowrap;
+}
+
+.result-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  vertical-align: top;
+}
+
+.result-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.instructor-name-cell {
+  min-width: 120px;
+}
+
+.instructor-badge {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  background: #e7f3ff;
+  color: #0066cc;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.count-cell {
+  text-align: center;
+  min-width: 80px;
+}
+
+.count-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: #28a745;
+  color: white;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.offdays-cell {
+  max-width: 300px;
+}
+
+.offdays-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.offday-item-small {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #495057;
+  white-space: nowrap;
+}
+
+.offday-date-small {
+  font-weight: 500;
+}
+
+.reason-cell {
+  max-width: 200px;
+}
+
+.reasons-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.reason-tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* File Input Wrapper */
+.file-input-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+
+.file-input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.file-input-label {
+  display: block;
+  padding: 0.625rem 1rem;
+  background: #f8f9fa;
+  border: 2px dashed #dee2e6;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+  color: #495057;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-input-label:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.file-input:disabled + .file-input-label {
+  background: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Section Description */
+.section-description {
+  margin: 0 0 1rem 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Result Details */
+.result-details {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.result-details h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  color: #495057;
+  font-weight: 600;
+}
+
+.instructor-offdays-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.instructor-offdays-item {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #e9ecef;
+}
+
+.instructor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.instructor-name-badge {
+  display: inline-block;
+  padding: 0.375rem 0.875rem;
+  background: #e7f3ff;
+  color: #0066cc;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.offdays-count {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  background: #28a745;
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.offdays-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.offday-badge {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0.75rem;
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.offday-badge:hover {
+  border-color: #2196f3;
+  box-shadow: 0 2px 4px rgba(33, 150, 243, 0.1);
+}
+
+.offday-date-text {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.25rem;
+}
+
+.offday-reason-text {
+  font-size: 0.8rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  color: #adb5bd;
+  font-size: 0.9rem;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+  line-height: 1;
+}
+
+.btn-close:hover {
+  background: #f8f9fa;
+  color: #495057;
+}
+
+/* Responsive adjustments for upload section */
+@media (max-width: 768px) {
+  .content-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .upload-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .file-input-wrapper {
+    min-width: 100%;
+  }
+  
+  .btn-upload,
+  .btn-template {
+    width: 100%;
+  }
+  
+  .result-summary {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  
+  .offdays-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .instructor-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
